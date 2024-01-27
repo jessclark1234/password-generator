@@ -131,7 +131,7 @@ function generatePassword(){
   }
 
 
-console.log(result)
+return (result.join(""));
 }
 
 
@@ -141,9 +141,9 @@ console.log(result)
   function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
-    
-    var json_data = JSON.stringify(result)
-    document.write(json_data)
+    passwordText.value = password
+    // var json_data = JSON.stringify(result)
+    // document.write(json_data)
   }
 
   // Add event listener to generate button
