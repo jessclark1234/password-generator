@@ -82,6 +82,7 @@ var upperCase = [
 
 var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
+// make into checkbox at some point
 function createPassword() {
   var includeSpecialCharacters = confirm('Click "ok" to include special characters');
   var includeNumbers = confirm('Click "ok" to include numbers');
@@ -129,13 +130,10 @@ function generatePassword() {
   for (i = 0; i < passwordOptions.includePassLength; i++) {
     result.push(generateRandomChar(possibleCharacters))
   }
-
-
-  console.log(result)
+  return (result.join(""));
 }
 
 generatePassword()
-
 
 var generateBtn = document.querySelector("#generate");
 
@@ -149,8 +147,8 @@ function writePassword() {
 
   console.log(result)
   const passwordContainer = document.getElementById("password");
-  var json_data = JSON.stringify(result);
-  document.write(json_data);
+  // var json_data = JSON.stringify(result);
+  // document.write(json_data);
   function outputToPage() {
     passwordContainer.innerHTML = result.join;
   }
