@@ -89,6 +89,7 @@ function createPassword() {
   var includeLowerCase = confirm('Click to include lowercase letters');
   var includePassLength = prompt('How long would you like your password?');
 
+  // Change this to checkboxes at some point
   if(includeSpecialCharacters === false && includeLowerCase === false && includeNumbers === false && includeUpperCase === false){
     alert = ('Must include at least one(1) uppercase character, one(1) lowercase character, one(1) numeric character and one(1) special charater');
     return;
@@ -132,6 +133,7 @@ function generatePassword(){
 
 
 return (result.join(""));
+
 }
 
 
