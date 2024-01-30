@@ -89,12 +89,7 @@ function createPassword() {
   var includeLowerCase = confirm('Click "ok" to include lowercase letters');
   var includePassLength = prompt('How long would you like your password?');
 
-
-  // Change this to checkboxes at some point
-
-
   if (includeSpecialCharacters === false && includeLowerCase === false && includeNumbers === false && includeUpperCase === false) {
-
     alert = ('Must include at least one(1) uppercase character, one(1) lowercase character, one(1) numeric character and one(1) special charater');
     return;
   }
@@ -132,24 +127,24 @@ function generatePassword() {
   }
   var result = [];
   for (i = 0; i < passwordOptions.includePassLength; i++) {
-    result.push(generateRandomChar(possibleCharacters)
-return (result.join(""));
+    result.push(generateRandomChar(possibleCharacters))
+  }
 
 
+  console.log(result)
 }
 
 generatePassword()
 
 
+var generateBtn = document.querySelector("#generate");
 
-  // Write password to the #password input
-  function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-    passwordText.value = password
-    // var json_data = JSON.stringify(result)
-    // document.write(json_data)
-
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var result = [];
+  for (i = 0; i < passwordOptions.includePassLength; i++) {
+    result.push(generateRandomChar(possibleCharacters))
   }
 
   console.log(result)
