@@ -106,6 +106,7 @@ function createPassword() {
   return options;
 }
 
+
 function generatePassword() {
   var passwordOptions = createPassword();
   var possibleCharacters = [];
@@ -121,40 +122,40 @@ function generatePassword() {
   if (passwordOptions.includeUpperCase === true) {
     possibleCharacters = possibleCharacters.concat(upperCase)
   }
-  function generateRandomChar(array) {
+  // var passwordOptions = createPassword();
+  var result = [];
+  for (i = 0; i < passwordOptions.includePassLength; i++) {
+    result.push(generateRandomChar(possibleCharacters))
+  }
+
+  return (result.join(""));
+
+}
+  // generatePassword()
+  
+  var generateBtn = document.querySelector("#generate");
+function generateRandomChar(array) {
     var randomIndex = Math.floor(Math.random() * array.length)
     var randomChar = array[randomIndex]
     return randomChar;
   }
-  var result = [];
-  for (i = 0; i < passwordOptions.includePassLength; i++) {
-    result.push(generateRandomChar(possibleCharacters))
-  }
-  return (result.join(""));
-}
 
-generatePassword()
+  // Write password to the #password input
+  function writePassword() {
+    var password = generatePassword();
 
-var generateBtn = document.querySelector("#generate");
+    // var result = [];
+    // for (i = 0; i < passwordOptions.includePassLength; i++) {
+    //   result.push(generateRandomChar(possibleCharacters))
+    // }
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var result = [];
-  for (i = 0; i < passwordOptions.includePassLength; i++) {
-    result.push(generateRandomChar(possibleCharacters))
+    // console.log(result)
+    const passwordContainer = document.getElementById("password");
+    // var json_data = JSON.stringify(result);
+    // document.write(json_data);
+   passwordContainer.textContent = password
   }
 
-  console.log(result)
-  const passwordContainer = document.getElementById("password");
-  // var json_data = JSON.stringify(result);
-  // document.write(json_data);
-  function outputToPage() {
-    passwordContainer.innerHTML = result.join;
-  }
-}
-writePassword()
-outputToPage()
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
